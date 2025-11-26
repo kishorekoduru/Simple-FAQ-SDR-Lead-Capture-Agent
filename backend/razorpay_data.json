@@ -1,0 +1,55 @@
+{
+  "company": "Razorpay",
+  "description": "Razorpay is India's leading payments solution provider that allows businesses to accept, process, and disburse payments with its product suite. It gives you access to all payment modes including credit card, debit card, netbanking, UPI and popular wallets including JioMoney, Mobikwik, Airtel Money, FreeCharge, Ola Money and PayZapp.",
+  "faqs": [
+    {
+      "question": "What is Razorpay?",
+      "answer": "Razorpay is a full-stack financial solutions company that helps Indian businesses with payments, banking, and payroll. We enable you to accept payments via 100+ modes, manage your business finances, and automate payroll."
+    },
+    {
+      "question": "Who is Razorpay for?",
+      "answer": "Razorpay is for businesses of all sizes - from freelancers and home-based businesses to startups and large enterprises. If you need to accept payments or manage business finances in India, Razorpay is for you."
+    },
+    {
+      "question": "How do I sign up?",
+      "answer": "You can sign up on the Razorpay website. It's a completely online, paperless process. You just need to provide your business details and upload KYC documents."
+    },
+    {
+      "question": "What payment modes do you support?",
+      "answer": "We support over 100 payment modes including Credit and Debit Cards (Visa, Mastercard, Rupay, Amex, etc.), Net Banking (50+ banks), UPI, Online Wallets, EMI, and Pay Later options."
+    },
+    {
+      "question": "Is it secure?",
+      "answer": "Yes, Razorpay is highly secure. We are PCI DSS Level 1 compliant, which is the highest standard of security in the payments industry. We also use AI-based fraud detection."
+    }
+  ],
+  "pricing": {
+    "standard": {
+      "description": "For Startups and Small/Medium Enterprises",
+      "platform_fee": "2% per transaction",
+      "setup_fee": "Zero",
+      "annual_maintenance_fee": "Zero",
+      "features": [
+        "Accept payments via domestic Credit/Debit cards, Netbanking, UPI, Wallets",
+        "Flash Checkout",
+        "Dashboard access",
+        "Android & iOS SDKs"
+      ]
+    },
+    "enterprise": {
+      "description": "For Large Enterprises with high transaction volumes",
+      "platform_fee": "Custom pricing",
+      "features": [
+        "All Standard features",
+        "Dedicated Key Account Manager",
+        "24x7 Support",
+        "Early access to new features",
+        "Custom integration support"
+      ]
+    },
+    "international": {
+      "fee": "3% per transaction",
+      "description": "For accepting international payments"
+    }
+  }
+}
