@@ -1,78 +1,56 @@
-# AI Voice Agents Challenge - Starter Repository
+# Simple FAQ SDR + Lead Capture Agent
 
-Welcome to the **AI Voice Agents Challenge** by [murf.ai](https://murf.ai)!
+A voice-based Sales Development Representative (SDR) agent built with LiveKit Agents for Razorpay. This agent can answer FAQ questions and capture lead information through natural conversation.
 
-## About the Challenge
+## 🎯 Day 5 Challenge - Murf AI Voice Agents Challenge
 
-We just launched **Murf Falcon** – the consistently fastest TTS API, and you're going to be among the first to test it out in ways never thought before!
+This project implements the **Day 5 Primary Goal** from the Murf AI Voice Agents Challenge:
+- ✅ SDR persona for Razorpay (Indian payments company)
+- ✅ FAQ-based question answering
+- ✅ Natural lead information collection
+- ✅ End-of-call summary and data storage
 
-**Build 10 AI Voice Agents over the course of 10 Days** along with help from our devs and the community champs, and win rewards!
+## 🚀 Features
 
-### How It Works
+### Core Functionality
+- **Voice-based SDR** that represents Razorpay
+- **FAQ Answering** using structured company data
+- **Lead Capture** - Collects:
+  - Name
+  - Company Name
+  - Email
+  - Role/Designation
+  - Use Case
+  - Team Size
+  - Timeline (now/soon/later)
+- **Automatic Data Storage** - Saves leads to JSON files
 
-- One task to be provided everyday along with a GitHub repo for reference
-- Build a voice agent with specific personas and skills
-- Post on GitHub and share with the world on LinkedIn!
+### Technology Stack
+- **Backend**: LiveKit Agents (Python)
+- **Frontend**: Next.js 15 with TypeScript
+- **Voice Services**:
+  - Murf AI (Text-to-Speech)
+  - Deepgram (Speech-to-Text)
+  - Google Gemini 1.5 Flash (LLM)
+- **Infrastructure**: LiveKit Cloud
 
-## Repository Structure
+## 📋 Prerequisites
 
-This is a **monorepo** that contains both the backend and frontend for building voice agent applications. It's designed to be your starting point for each day's challenge task.
+- Python 3.10+ with `uv` package manager
+- Node.js 18+ with `pnpm`
+- API Keys for:
+  - LiveKit Cloud
+  - Murf AI
+  - Deepgram
+  - Google Gemini
 
-```
-falcon-tdova-nov25-livekit/
-├── backend/          # LiveKit Agents backend with Murf Falcon TTS
-├── frontend/         # React/Next.js frontend for voice interaction
-├── start_app.sh      # Convenience script to start all services
-└── README.md         # This file
-```
-
-### Backend
-
-The backend is based on [LiveKit's agent-starter-python](https://github.com/livekit-examples/agent-starter-python) with modifications to integrate **Murf Falcon TTS** for ultra-fast, high-quality voice synthesis.
-
-**Features:**
-
-- Complete voice AI agent framework using LiveKit Agents
-- Murf Falcon TTS integration for fastest text-to-speech
-- LiveKit Turn Detector for contextually-aware speaker detection
-- Background voice cancellation
-- Integrated metrics and logging
-- Complete test suite with evaluation framework
-- Production-ready Dockerfile
-
-[→ Backend Documentation](./backend/README.md)
-
-### Frontend
-
-The frontend is based on [LiveKit's agent-starter-react](https://github.com/livekit-examples/agent-starter-react), providing a modern, beautiful UI for interacting with your voice agents.
-
-**Features:**
-
-- Real-time voice interaction with LiveKit Agents
-- Camera video streaming support
-- Screen sharing capabilities
-- Audio visualization and level monitoring
-- Light/dark theme switching
-- Highly customizable branding and UI
-
-[→ Frontend Documentation](./frontend/README.md)
-
-## Quick Start
-
-### Prerequisites
-
-Make sure you have the following installed:
-
-- Python 3.9+ with [uv](https://docs.astral.sh/uv/) package manager
-- Node.js 18+ with pnpm
-- [LiveKit CLI](https://docs.livekit.io/home/cli/cli-setup) (optional but recommended)
-- [LiveKit Server](https://docs.livekit.io/home/self-hosting/local/) for local development
+## 🛠️ Setup Instructions
 
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-repo-url>
-cd falcon-tdova-nov25-livekit
+git clone https://github.com/kishorekoduru/Simple-FAQ-SDR-Lead-Capture-Agent.git
+cd Simple-FAQ-SDR-Lead-Capture-Agent
 ```
 
 ### 2. Backend Setup
@@ -80,135 +58,122 @@ cd falcon-tdova-nov25-livekit
 ```bash
 cd backend
 
-# Install dependencies
+# Install dependencies with uv
 uv sync
 
-# Copy environment file and configure
-cp .env.example .env.local
+# Copy environment template
+cp .env.example .env
 
-# Edit .env.local with your credentials:
-# - LIVEKIT_URL
-# - LIVEKIT_API_KEY
-# - LIVEKIT_API_SECRET
-# - MURF_API_KEY (for Falcon TTS)
-# - GOOGLE_API_KEY (for Gemini LLM)
-# - DEEPGRAM_API_KEY (for Deepgram STT)
-
-# Download required models
-uv run python src/agent.py download-files
-```
-
-For LiveKit Cloud users, you can automatically populate credentials:
-
-```bash
-lk cloud auth
-lk app env -w -d .env.local
+# Edit .env and add your API keys:
+# LIVEKIT_URL=wss://your-livekit-url
+# LIVEKIT_API_KEY=your-api-key
+# LIVEKIT_API_SECRET=your-api-secret
+# GOOGLE_API_KEY=your-gemini-key
+# MURF_API_KEY=your-murf-key
+# DEEPGRAM_API_KEY=your-deepgram-key
 ```
 
 ### 3. Frontend Setup
 
 ```bash
-cd frontend
+cd ../frontend
 
 # Install dependencies
 pnpm install
 
-# Copy environment file and configure
-cp .env.example .env.local
+# Copy environment template
+cp .env.example .env
 
-# Edit .env.local with the same LiveKit credentials
+# Edit .env and add your LiveKit credentials:
+# LIVEKIT_URL=wss://your-livekit-url
+# LIVEKIT_API_KEY=your-api-key
+# LIVEKIT_API_SECRET=your-api-secret
 ```
 
 ### 4. Run the Application
 
-#### Install livekit server
+From the root directory:
 
 ```bash
-brew install livekit
-```
-
-You have two options:
-
-#### Option A: Use the convenience script (runs everything)
-
-```bash
-# From the root directory
-chmod +x start_app.sh
-./start_app.sh
+bash start_app.sh
 ```
 
 This will start:
+- Backend agent on LiveKit Cloud
+- Frontend on http://localhost:3000
 
-- LiveKit Server (in dev mode)
-- Backend agent (listening for connections)
-- Frontend app (at http://localhost:3000)
+## 🎮 Usage
 
-#### Option B: Run services individually
+1. Open http://localhost:3000 in your browser
+2. Click "Start call"
+3. Speak to the agent:
+   - Ask about Razorpay: "What does Razorpay do?"
+   - Inquire about pricing: "What are your pricing plans?"
+   - The agent will naturally collect your information during the conversation
+4. Say "That's all" or "I'm done" to end the call
+5. The agent will summarize and save your lead data to `lead_<name>.json`
 
-```bash
-# Terminal 1 - LiveKit Server
-livekit-server --dev
+## 📁 Project Structure
 
-# Terminal 2 - Backend Agent
-cd backend
-uv run python src/agent.py dev
-
-# Terminal 3 - Frontend
-cd frontend
-pnpm dev
+```
+.
+├── backend/
+│   ├── src/
+│   │   ├── day5_sdr.py        # Main SDR agent implementation
+│   │   ├── agent.py           # Original starter agent
+│   │   └── minimal_agent.py   # Minimal test agent
+│   ├── razorpay_data.json     # FAQ and pricing data
+│   └── pyproject.toml         # Python dependencies
+├── frontend/
+│   ├── app/                   # Next.js app directory
+│   ├── components/            # React components
+│   └── hooks/                 # Custom React hooks
+├── challenges/                # Challenge task descriptions
+└── start_app.sh              # Startup script
 ```
 
-Then open http://localhost:3000 in your browser!
+## 🔧 Key Implementation Details
 
-## Daily Challenge Tasks
+### Fixed Room Name
+The frontend uses a consistent room name (`sdr-demo-room`) instead of random names, ensuring the agent can reliably connect to the same room.
 
-Each day, you'll receive a new task that builds upon your voice agent. The tasks will help you:
+### Lead Data Collection
+The agent uses LiveKit function tools to collect lead information:
+- `update_lead_info()` - Updates lead data as conversation progresses
+- `finalize_call()` - Saves lead data when conversation ends
 
-- Implement different personas and conversation styles
-- Add custom tools and capabilities
-- Integrate with external APIs
-- Build domain-specific agents (customer service, tutoring, etc.)
-- Optimize performance and user experience
+### Company Data
+Razorpay FAQ and pricing information is loaded from `razorpay_data.json` and embedded in the agent's instructions for accurate responses.
 
-**Stay tuned for daily task announcements!**
+## 🐛 Troubleshooting
 
-## Documentation & Resources
+### No Voice Output
+1. **Check for zombie processes**: Kill any old agent processes
+   ```bash
+   pkill -9 -f "day5_sdr.py"
+   ```
+2. **Verify API keys**: Ensure all API keys in `.env` files are correct
+3. **Check browser permissions**: Allow microphone access
 
-- [Murf Falcon TTS Documentation](https://murf.ai/api/docs/text-to-speech/streaming)
-- [LiveKit Agents Documentation](https://docs.livekit.io/agents)
-- [Original Backend Template](https://github.com/livekit-examples/agent-starter-python)
-- [Original Frontend Template](https://github.com/livekit-examples/agent-starter-react)
+### Agent Not Connecting
+- Ensure both backend and frontend are running
+- Check that LiveKit credentials match in both `.env` files
+- Verify the room name is consistent (`sdr-demo-room`)
 
-## Testing
+## 📝 License
 
-The backend includes a comprehensive test suite:
+This project is licensed under the Apache License 2.0.
 
-```bash
-cd backend
-uv run pytest
-```
+## 🙏 Acknowledgments
 
-Learn more about testing voice agents in the [LiveKit testing documentation](https://docs.livekit.io/agents/build/testing/).
+- Built for the **Murf AI Voice Agents Challenge**
+- Powered by **LiveKit Agents**
+- Uses **Murf Falcon** for ultra-fast TTS
 
-## Contributing & Community
+## 📞 Contact
 
-This is a challenge repository, but we encourage collaboration and knowledge sharing!
-
-- Share your solutions and learnings on GitHub
-- Post about your progress on LinkedIn
-- Join the [LiveKit Community Slack](https://livekit.io/join-slack)
-- Connect with other challenge participants
-
-## License
-
-This project is based on MIT-licensed templates from LiveKit and includes integration with Murf Falcon. See individual LICENSE files in backend and frontend directories for details.
-
-## Have Fun!
-
-Remember, the goal is to learn, experiment, and build amazing voice AI agents. Don't hesitate to be creative and push the boundaries of what's possible with Murf Falcon and LiveKit!
-
-Good luck with the challenge!
+For questions or issues, please open an issue on GitHub.
 
 ---
 
-Built for the AI Voice Agents Challenge by murf.ai
+**#MurfAIVoiceAgentsChallenge** | **#10DaysofAIVoiceAgents**
